@@ -2,6 +2,7 @@ package pl.javastart.streamsexercise;
 
 import java.time.ZonedDateTime;
 import java.util.List;
+import java.util.Objects;
 
 public class Payment {
 
@@ -37,5 +38,18 @@ public class Payment {
 
     public void setPaymentItems(List<PaymentItem> paymentItems) {
         this.paymentItems = paymentItems;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Payment payment = (Payment) o;
+        return Objects.equals(user, payment.user) && Objects.equals(paymentDate, payment.paymentDate) && Objects.equals(paymentItems, payment.paymentItems);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(user, paymentDate, paymentItems);
     }
 }
