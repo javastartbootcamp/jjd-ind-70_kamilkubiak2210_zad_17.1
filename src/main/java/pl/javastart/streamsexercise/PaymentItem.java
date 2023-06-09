@@ -5,9 +5,9 @@ import java.util.Objects;
 
 public class PaymentItem {
 
-    private String name;
-    private BigDecimal regularPrice;
-    private BigDecimal finalPrice;
+    private final String name;
+    private final BigDecimal regularPrice;
+    private final BigDecimal finalPrice;
 
     public PaymentItem(String name, BigDecimal regularPrice, BigDecimal finalPrice) {
         this.name = name;
@@ -19,24 +19,12 @@ public class PaymentItem {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public BigDecimal getRegularPrice() {
         return regularPrice;
     }
 
-    public void setRegularPrice(BigDecimal regularPrice) {
-        this.regularPrice = regularPrice;
-    }
-
-    public  BigDecimal getFinalPrice() {
+    public BigDecimal getFinalPrice() {
         return finalPrice;
-    }
-
-    public void setFinalPrice(BigDecimal finalPrice) {
-        this.finalPrice = finalPrice;
     }
 
     @Override
