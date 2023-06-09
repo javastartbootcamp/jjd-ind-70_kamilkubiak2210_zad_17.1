@@ -103,7 +103,6 @@ class PaymentService {
      */
     BigDecimal sumTotalForGivenMonth(YearMonth yearMonth) {
         return findPaymentsForGivenMonth(yearMonth).stream()
-                .filter(payment -> payment.getPaymentDate().getYear() == yearMonth.getYear() && payment.getPaymentDate().getMonth() == yearMonth.getMonth())
                 .map(Payment::getPaymentItems)
                 .flatMap(List::stream).map(PaymentItem::getFinalPrice)
                 .reduce(ZERO, BigDecimal::add);
